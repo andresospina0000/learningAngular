@@ -1,0 +1,20 @@
+<h1>Busqueda de Héroes <small>Marvel y DC</small></h1>
+<hr>
+<div class="card-columns">
+
+    <div class="card animated fadeIn fast" *ngFor="let heroe of heroesArr;">
+        <!-- <img src="{{heroe.img}}" class="card-img-top" alt="..."> Esta es una forma de capturar la imagen del objeto-->
+        <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+        <!-- Esta es la segunda forma de llamar la imagen del objeto -->
+        <div class="card-body">
+            <h5 class="card-title">{{heroe.nombre}}</h5>
+            <p class="card-text">{{heroe.bio}}</p>
+            <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+            <!-- <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver mas...</button> -->
+            <!-- De esta forma se le pasa por parametro del ID del hereo, utilizando el indice del array
+            ya que el objeto no cuenta con una propiedad id como tal -->
+            <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver mas link...</a> -->
+        </div>
+    </div>
+
+</div>

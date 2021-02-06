@@ -1,0 +1,55 @@
+<div class="container">
+    <h1 class="align-content-center">Supermercado Antojitos!!! 10 años.</h1>
+    <hr />
+    <div class="wrap-login100 p-t-50 p-b-90">
+        <h1>Ventas</h1>
+        <h6>Fecha: {{fechaVenta | date: 'yyyy/MM/dd h:mm a'}}</h6>
+        <hr>
+        <div *ngIf="existe">
+            <label for="">Por favor digitar el numero de identificación del cliente:</label>
+            <input #documento class="align-items-md-start" type="text" name="numCliente" placeholder="Identificacion">
+            <button class="btn btn-outline-info" (click)="getCliente(documento.value)">Cargar Cliente</button>
+        </div>
+        <label for="">Bievenido sr(a): {{cliente.Nombres}} {{cliente.Apellidos}} </label>
+        <h4 *ngIf="!existe">Factura No. {{consecutivo}}</h4>
+        <h4>Seleccionar productos</h4>
+        <hr>
+        <div *ngIf="!existe">
+            <select [(ngModel)]="producto">
+                <option *ngFor="let item of productos" [ngValue]="item">{{item.nombre}}</option>
+              </select>
+            <input #cantidad class="text-black align-items-md-start" type="text" name="cantidad" placeholder="cantidad">
+            <button class="btn btn-outline-success" (click)="addProducto(producto.id,cantidad.value)">Agregar...</button>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Valor x Unidad</th>
+                        <th>Cantidad</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let f of facDetalle">
+                        <th>{{f.codigo}}</th>
+                        <th>{{f.nombre}}</th>
+                        <th>{{f.valor}}</th>
+                        <th>{{f.cantidad}}</th>
+                        <th>{{f.valorTotal}}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <h4 *ngIf="!existe">Valor Total a Pagar: {{totalAPagar}}</h4>
+                <button *ngIf="!existe" class="btn btn-outline-primary" (click)="pagarFacT()">Pagar...</button>
+            </div>
+            <hr>
+            <div>
+                <button class="btn btn-outline-danger" (click)="salir()">Cancelar</button>
+            </div>
+
+        </div>
+    </div>

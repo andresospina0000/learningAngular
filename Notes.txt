@@ -1,0 +1,15 @@
+26/01/2020
+
+Referenciar Librerias Bootstrap
+
+Existen varias formas de hacerlo:
+
+*Mediante el CDN, en la pagina index.html, copiando los link y script de descarga para que el cliente cada vez que ingrese los descargue ó, si ya habia ingresado a un pagina con bootstrap, el navegador mediante su cache ya debe tenerlos y se podran usar las librerias sin problema.
+*Descargando las librerias directamente de la pagina de bootstrap y referenciando las librerias locales (en el mismo dominio del pryecto) tal cual como se hizo en el punto anterior
+*Mediante el archivo json, se debe realizar npm install bootstrap y lo mismo para jquery, para crear los bundles, y posteriormente se deben referenciar en el archivo angular.json en la parte de "styles" y "scripts"
+
+29/04/2020
+
+*Recordar que se debe ejecutar el siguiente comando en PowerShell como administrador, la cual permitira ejecutar los scripts del agunlar cli:
+
+	Set-ExecutionPolicy Unrestricted
